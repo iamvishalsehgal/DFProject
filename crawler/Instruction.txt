@@ -1,0 +1,13 @@
+To run crawler
+- scrapy crawl AVCrawler
+
+To scrap website from terminal or go to scrapy shell
+- scrapy shell "website"
+
+1. Using CSS selectors (In terminal after going to scrapy shell)
+- Using scrapy shell
+- response.css('title')
+- response.css('title').extract()
+- response.css('title::text').extract()
+- response.css('title::text')[0].extract()
+- response.css('title::text').extract_first()
