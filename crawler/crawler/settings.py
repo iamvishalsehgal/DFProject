@@ -66,46 +66,6 @@ ROBOTSTXT_OBEY = True
 #    "crawler.pipelines.CrawlerPipeline": 300,
 #}
 
-
-# Configure the SOCKS proxy
-DOWNLOADER_MIDDLEWARES = {
-    'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': None,
-    'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
-    'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware': None,
-    'scrapy.downloadermiddlewares.redirect.RedirectMiddleware': None,
-    'scrapy.downloadermiddlewares.cookies.CookiesMiddleware': None,
-    'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': None,
-    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
-    'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 400,
-    'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware': None,
-    'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware': None,
-    'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware': None,
-    'scrapy.downloadermiddlewares.ajaxcrawl.AjaxCrawlMiddleware': None,
-    'scrapy.downloadermiddlewares.chunked.ChunkedTransferMiddleware': None,
-    'scrapy.downloadermiddlewares.stats.DownloaderStats': None,
-    'scrapy.downloadermiddlewares.httpcache.HttpCacheMiddleware': None,
-    'myproject.middlewares.ProxyMiddleware': 350,
-}
-
-PROXY_LIST = [
-    'socks5://127.0.0.1:9050',  # Assuming Tor is running locally on the default port
-]
-
-# Disable default User-Agent middleware
-DOWNLOADER_MIDDLEWARES.update({
-    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
-})
-
-# Enable User-Agent middleware
-DOWNLOADER_MIDDLEWARES.update({
-    'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 400,
-})
-
-# Retry many times since proxies often fail
-RETRY_TIMES = 10
-
-
-
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True

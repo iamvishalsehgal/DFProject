@@ -1,17 +1,20 @@
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
 
-proxies = { 
-     'http': 'localhost:8118',
-     'https': 'localhost:8118'
-}
-
-class CrawlingSpider(CrawlSpider):
+class AVCrawler(CrawlSpider):
     name = "AVCrawler"
-    allowed_domains = ["muwgjdckwwmhyi7lj73dspumrxmzuzjvujmtmyrhhbjrgswcakobtfad.onion"] # domain link
-    start_urls = ["https://muwgjdckwwmhyi7lj73dspumrxmzuzjvujmtmyrhhbjrgswcakobtfad.onion/"] # website link 
+    allowed_domains = ["books.toscrape.com"]
+    start_urls = ["https://books.toscrape.com/"]
 
-    rules = (
-        # all here is the https://libsearch.uvt.nl/all/ loction where books are kinda
-        Rule(LinkExtractor(allow=("all")), callback='parse_item', follow=True),
-)
+#Rules also include extracting all urls
+#    rules = (
+#        Rule(LinkExtractor(allow=()), callback='parse_item'),
+#    )
+
+#To only scrape starting url
+    def parse_start_url(self, response):
+        return self.parse_item(response)
+    
+    def parse_item(self, response):
+        title = response.css('title::text').extract()
+        yield {'titletext': title}
