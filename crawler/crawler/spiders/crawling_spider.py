@@ -16,5 +16,5 @@ class AVCrawler(CrawlSpider):
         return self.parse_item(response)
     
     def parse_item(self, response):
-        title = response.css('title::text').extract()
-        yield {'titletext': title}
+#        title = response.css('title::text').extract()
+#        yield {'titletext': title}

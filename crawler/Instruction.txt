@@ -4,10 +4,18 @@ To run crawler
 To scrap website from terminal or go to scrapy shell
 - scrapy shell "website"
 
-1. Using CSS selectors (In terminal after going to scrapy shell)
+Using CSS selectors (In terminal after going to scrapy shell)
 - Using scrapy shell
-- response.css('title')
-- response.css('title').extract()
-- response.css('title::text').extract()
-- response.css('title::text')[0].extract()
-- response.css('title::text').extract_first()
+    - response.css('title')
+    - response.css('title').extract()
+    - response.css('title::text').extract()
+    - response.css('title::text')[0].extract()
+    - response.css('title::text').extract_first()
+
+Using XPath
+- Using scrapy shell
+    - response.xpath("//title").extract()
+    - response.xpath("//title/text").extract()
+    - response.xpath("//span[@class='text']/text()").extract()
+    - response.css("li.next a").xpath("@href").extract()     ; where next is class and a is whats inside that class
+    - response.css("a").xpath("@href").extract()
