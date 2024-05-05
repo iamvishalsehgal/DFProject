@@ -6,7 +6,6 @@ from scrapy.downloadermiddlewares.useragent import UserAgentMiddleware
 from scrapy.utils.response import response_status_message
 from scrapy.http import Request
 import random
-import time
 
 class RandomUserAgentMiddleware(UserAgentMiddleware):
     def __init__(self, user_agent_list):
@@ -25,20 +24,29 @@ class AVCrawler(CrawlSpider):
     start_urls = ["https://www.playerup.com/"]
 
     rules = (
-        Rule(LinkExtractor(allow=('/accounts/.*',)), callback='parse_item'),
+        Rule(LinkExtractor(allow=r'/accounts/[\w-]+/$'), callback='parse_listing', follow=True), # Follow links to category pages
+#        Rule(LinkExtractor(allow=r'/threads/.*\.(\d+)/$'), callback='parse_detail'),  # Extract details from post pages
     )
+
+    def parse_listing(self, response):
+        # Extract links to individual posts from category pages
+        # Use the correct CSS selector to target links inside the <h3 class="title">
+        post_links = response.css('h3.title > a.PreviewTooltip::attr(href)').getall()
+        for url in post_links:
+            absolute_url = response.urljoin(url)
+            yield response.follow(absolute_url, self.parse_detail)
 
     def __init__(self, *args, **kwargs):
         super(AVCrawler, self).__init__(*args, **kwargs)
         settings = get_project_settings()
 
-    def parse_item(self, response):
-        # Parsing Logic:
+    def parse_detail(self, response):
+        # This function extracts details from each post
         yield {
-            'title': response.css('h1::text').get(),
-            'price': response.css('.price-tag::text').get(),
-            'seller': response.css('.seller-info::text').get(),
-            # Add more fields as necessary
+            'title': response.css('h1::text').get().strip(),
+            'price': response.css('dd::text').extract_first().strip(),  # Updated based on the provided structure
+            'seller': response.css('a.username::text').get(),
+            # Extract other details as required
         }
 
 
