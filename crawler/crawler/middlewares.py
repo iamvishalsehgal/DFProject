@@ -7,7 +7,11 @@ from scrapy import signals
 
 # useful for handling different item types with a single interface
 from itemadapter import is_item, ItemAdapter
-
+import random
+import time
+from scrapy.downloadermiddlewares.retry import RetryMiddleware
+from scrapy.utils.response import response_status_message
+from scrapy.downloadermiddlewares.useragent import UserAgentMiddleware
 
 class CrawlerSpiderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
@@ -101,3 +105,23 @@ class CrawlerDownloaderMiddleware:
 
     def spider_opened(self, spider):
         spider.logger.info("Spider opened: %s" % spider.name)
+
+class RandomUserAgentMiddleware(UserAgentMiddleware):
+    def __init__(self, user_agent_list):
+        self.user_agent_list = user_agent_list
+
+    def process_request(self, request, spider):
+        request.headers.setdefault('User-Agent', random.choice(self.user_agent_list))
+
+class CustomRetryMiddleware(RetryMiddleware):
+    def process_response(self, request, response, spider):
+        if response.status == 429:
+            retry_after = response.headers.get('Retry-After')
+            if retry_after:
+                delay = int(retry_after)
+                spider.crawler.engine.pause()
+                time.sleep(delay)
+                spider.crawler.engine.unpause()
+            reason = response_status_message(response.status)
+            return self._retry(request, reason, spider) or response
+        return response

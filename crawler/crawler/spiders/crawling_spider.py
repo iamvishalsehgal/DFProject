@@ -4,7 +4,9 @@ from scrapy.utils.project import get_project_settings
 from scrapy.downloadermiddlewares.retry import RetryMiddleware
 from scrapy.downloadermiddlewares.useragent import UserAgentMiddleware
 from scrapy.utils.response import response_status_message
+from scrapy.http import Request
 import random
+import time
 
 class RandomUserAgentMiddleware(UserAgentMiddleware):
     def __init__(self, user_agent_list):
@@ -13,29 +15,32 @@ class RandomUserAgentMiddleware(UserAgentMiddleware):
     def process_request(self, request, spider):
         request.headers.setdefault('User-Agent', random.choice(self.user_agent_list))
 
-class CustomRetryMiddleware(RetryMiddleware):
-    def process_response(self, request, response, spider):
-        if response.status == 403:
-            reason = response_status_message(response.status)
-            return self._retry(request, reason, spider) or response
-        return response
-    
+# Added to middlewares.py
+# class CustomRetryMiddleware(RetryMiddleware):
+#       def process_response(self, request, response, spider):
 
 class AVCrawler(CrawlSpider):
     name = "AVCrawler"
-    allowed_domains = ["etsy.com"]
-    start_urls = ["https://www.etsy.com/"]
+    allowed_domains = ["playerup.com"]
+    start_urls = ["https://www.playerup.com/"]
 
     rules = (
-        Rule(LinkExtractor(allow="/listing")),
+        Rule(LinkExtractor(allow=('/accounts/.*',)), callback='parse_item'),
     )
 
     def __init__(self, *args, **kwargs):
         super(AVCrawler, self).__init__(*args, **kwargs)
         settings = get_project_settings()
-        settings.set('ROBOTSTXT_OBEY', False)
-        settings.set('DOWNLOAD_DELAY', 1)
-        settings.set('AUTOTHROTTLE_ENABLED', True)
+
+    def parse_item(self, response):
+        # Parsing Logic:
+        yield {
+            'title': response.css('h1::text').get(),
+            'price': response.css('.price-tag::text').get(),
+            'seller': response.css('.seller-info::text').get(),
+            # Add more fields as necessary
+        }
+
 
         # User-Agent Rotation
 user_agent_list = [
@@ -45,15 +50,6 @@ user_agent_list = [
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36",
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0"
 ]
-
-settings = get_project_settings()
-settings.set('ROBOTSTXT_OBEY', False)
-settings.set('DOWNLOAD_DELAY', 1)
-settings.set('AUTOTHROTTLE_ENABLED', True)
-settings.set('DOWNLOADER_MIDDLEWARES', {
-    '__main__.RandomUserAgentMiddleware': 400,
-    '__main__.CustomRetryMiddleware': 550,
-})
 
 
     #rules = (
