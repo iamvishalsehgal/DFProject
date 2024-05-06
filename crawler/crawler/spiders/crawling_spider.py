@@ -41,13 +41,35 @@ class AVCrawler(CrawlSpider):
         settings = get_project_settings()
 
     def parse_detail(self, response):
-        # This function extracts details from each post
-        yield {
-            'title': response.css('h1::text').get().strip(),
-            'price': response.css('dd::text').extract_first().strip(),  # Updated based on the provided structure
-            'seller': response.css('a.username::text').get(),
-            # Extract other details as required
-        }
+        # Extract the entire text of the <h1> tag
+        h1_full_text = response.css('.titleBar h1::text').getall()
+        span_texts = response.css('.titleBar h1 span::text').getall()
+    
+        # Remove the span texts from the full h1 text to isolate the title
+        title = " ".join(h1_full_text).strip()
+        for span_text in span_texts:
+            title = title.replace(span_text, '').strip()
+
+        # Extract price, handling cases where it might not be available
+        price_raw = response.css('.fc_buy_now dl:first-of-type dd::text').get()
+        price = price_raw.strip() if price_raw else 'Make offer'
+
+        # Extract seller, handling cases where it might not be available
+        seller_raw = response.css('a.username::text').get()
+        seller = seller_raw.strip() if seller_raw else 'No seller information'
+
+        # Check if all required fields are not empty
+        if title and price and seller:
+            yield {
+                'title': title,
+                'price': price,
+                'seller': seller,
+                # Extract other details as required
+            }
+        else:
+            # Optionally log missing data
+            logging.warning(f"Missing data on page: {response.url}. Title: {title}, Price: {price}, Seller: {seller}")
+
 
 
         # User-Agent Rotation
