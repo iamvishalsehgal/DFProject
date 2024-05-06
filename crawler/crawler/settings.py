@@ -95,3 +95,12 @@ REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
 
+FEEDS = {
+    'output/results.csv': {
+        'format': 'csv',
+        'encoding': 'utf-8',
+        'store_empty': False,
+        'fields': ['title', 'price', 'seller', 'location', 'discord', 'telegram'],  # Adding all necessary fields
+        'overwrite': True  # This will overwrite existing files on each run. Remove if append behavior is desired.
+    },
+}

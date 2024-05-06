@@ -19,3 +19,7 @@ Using XPath
     - response.xpath("//span[@class='text']/text()").extract()
     - response.css("li.next a").xpath("@href").extract()     ; where next is class and a is whats inside that class
     - response.css("a").xpath("@href").extract()
+
+Change these in settings.py while working with extraction to 
+DOWNLOAD_DELAY = Anything less than 5
+AUTOTHROTTLE_ENABLED = False
