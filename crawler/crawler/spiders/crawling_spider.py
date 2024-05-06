@@ -55,20 +55,44 @@ class AVCrawler(CrawlSpider):
         price = price_raw.strip() if price_raw else 'Make offer'
 
         # Extract seller, handling cases where it might not be available
-        seller_raw = response.css('a.username::text').get()
-        seller = seller_raw.strip() if seller_raw else 'No seller information'
+        seller_name = response.css('.username::text').get()
+        seller_profile_link = response.css('.username::attr(href)').get()
 
-        # Check if all required fields are not empty
-        if title and price and seller:
-            yield {
+        if title and price and seller_name and seller_profile_link:
+            # Resolve the relative URL to an absolute URL
+            absolute_seller_url = response.urljoin(seller_profile_link)
+            request = Request(absolute_seller_url, callback=self.parse_seller_profile)
+            request.meta['item'] = {
                 'title': title,
                 'price': price,
-                'seller': seller,
-                # Extract other details as required
+                'seller': seller_name
             }
+            yield request
         else:
-            # Optionally log missing data
-            logging.warning(f"Missing data on page: {response.url}. Title: {title}, Price: {price}, Seller: {seller}")
+            # Log the missing data or handle cases where the link is missing
+            logging.warning(f"Missing data on page: {response.url}. Title: {title}, Price: {price}, Seller: {seller_name}")
+
+    def parse_seller_profile(self, response):
+        item = response.meta['item']
+        # Extracting location from the "About" section
+        location = response.css('.aboutPairs a[itemprop="address"]::text').get(default='Location not specified').strip()
+        item['location'] = location
+
+        # Generalizing contact information extraction from "Interact" section
+        contact_info = {}
+        contact_fields = response.css('.contactInfo dl')
+        for field in contact_fields:
+            label = field.css('dt::text').get(default='').strip()
+            value = field.css('dd::text').get(default='').strip() if field.css('dd::text').get() else field.css('dd a::text').get(default='').strip()
+
+            # Normalize the label to create a more uniform key
+            normalized_label = label.lower().replace(':', '').replace(' ', '_')
+            contact_info[normalized_label] = value
+
+        # Update the item with contact info
+        item.update(contact_info)
+
+        yield item
 
 
 
