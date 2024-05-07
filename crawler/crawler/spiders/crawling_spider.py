@@ -6,6 +6,7 @@ from scrapy.downloadermiddlewares.useragent import UserAgentMiddleware
 from scrapy.utils.response import response_status_message
 from scrapy.http import Request
 import random
+import logging
 
 class RandomUserAgentMiddleware(UserAgentMiddleware):
     def __init__(self, user_agent_list):
@@ -78,22 +79,27 @@ class AVCrawler(CrawlSpider):
         location = response.css('.aboutPairs a[itemprop="address"]::text').get(default='Location not specified').strip()
         item['location'] = location
 
+        if item['price'] == 'Make offer' and item['location'] == 'Location not specified':
+            return  # Skip this item
+
         # Generalizing contact information extraction from "Interact" section
-        contact_info = {}
         contact_fields = response.css('.contactInfo dl')
         for field in contact_fields:
             label = field.css('dt::text').get(default='').strip()
-            value = field.css('dd::text').get(default='').strip() if field.css('dd::text').get() else field.css('dd a::text').get(default='').strip()
-
             # Normalize the label to create a more uniform key
             normalized_label = label.lower().replace(':', '').replace(' ', '_')
-            contact_info[normalized_label] = value
+            if normalized_label == 'content':
+                continue
+            # Extract text from both direct child text nodes and any nested elements like anchors
+            value_list = field.css('dd *::text').getall()  # This captures all text within the <dd>, including nested elements
+            value = ' '.join(value_list).strip()  # Join all parts of the text to form the full value
 
-        # Update the item with contact info
-        item.update(contact_info)
+            if value:  # Ensure there's something to add
+                item[normalized_label] = value
 
         yield item
 
+# Add SNA Stuff from here
 
 
         # User-Agent Rotation

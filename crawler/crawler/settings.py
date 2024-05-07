@@ -28,7 +28,7 @@ CONCURRENT_REQUESTS = 10
 DOWNLOAD_DELAY = 5
 # The download delay setting will honor only one of:
 CONCURRENT_REQUESTS_PER_DOMAIN = 1
-RANDOMIZE_DOWNLOAD_DELAY = True
+RANDOMIZE_DOWNLOAD_DELAY = False
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
@@ -103,5 +103,4 @@ FEEDS = {
         'fields': ['title', 'price', 'seller', 'location', 'discord', 'telegram'],  # Adding all necessary fields
         'overwrite': True  # This will overwrite existing files on each run. Remove if append behavior is desired.
     },
-}
-#this comit is just to push these files 
+} 

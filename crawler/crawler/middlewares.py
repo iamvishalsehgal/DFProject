@@ -107,12 +107,26 @@ class CrawlerDownloaderMiddleware:
         spider.logger.info("Spider opened: %s" % spider.name)
 
 class RandomUserAgentMiddleware(UserAgentMiddleware):
-    def __init__(self, user_agent_list):
-        self.user_agent_list = user_agent_list
+    def __init__(self, user_agent='Scrapy'):
+        super().__init__(user_agent=user_agent)
+        self.user_agent = user_agent
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        # This method initializes the middleware with settings from the crawler
+        # It uses settings to extract user_agent_list if it exists or defaults to an empty list
+        user_agent_list = crawler.settings.getlist('USER_AGENT_LIST', [])
+        o = cls(user_agent=crawler.settings.get('USER_AGENT', 'Scrapy'))
+        o.user_agent_list = user_agent_list
+        return o
 
     def process_request(self, request, spider):
-        request.headers.setdefault('User-Agent', random.choice(self.user_agent_list))
-
+        # Set the User-Agent header to a randomly selected one from the user_agent_list
+        if self.user_agent_list:
+            request.headers.setdefault('User-Agent', random.choice(self.user_agent_list))
+        elif self.user_agent:
+            request.headers.setdefault('User-Agent', self.user_agent)
+            
 class CustomRetryMiddleware(RetryMiddleware):
     def process_response(self, request, response, spider):
         if response.status == 429:
