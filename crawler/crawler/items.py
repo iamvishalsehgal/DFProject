@@ -10,3 +10,7 @@ class CrawlerItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     pass
+
+class WalletItem(scrapy.Item):
+    url = scrapy.Field()
+    wallet_addresses = scrapy.Field()
