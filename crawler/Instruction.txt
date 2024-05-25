@@ -1,5 +1,9 @@
-To run crawler
-- scrapy crawl AVCrawler
+To run crawler : 
+-  Go to cd crawler/crawler/spiders/
+- Open terminal to start scapping
+    - scrapy crawl AVCrawler [For Product and Seller information Scraping]
+    - scrapy crawl wallet_spider [For wallet scapping]
+- Output file saved in crawler/crawler/output/"Crawler_name"
 
 To scrap website from terminal or go to scrapy shell
 - scrapy shell "website"
