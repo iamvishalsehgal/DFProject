@@ -1,0 +1,20 @@
+url,wallet_addresses
+https://www.playerup.com/middleman/payment/bitcoin.php,"{'BTC': '38KkqFTGE8ErAXrL3eE67XkfEvZBjyveqz', 'BEP20': '0x041fedb4de9477e67c5212ed852c45a2ad57965c', 'BECH32': 'bc1q9jfs46ksewkpeeraplkuym3tmgteq4nsfhaqmn', 'Loop': '3QhMbCVX1kdYU3YVUBeJ77WqtsWd4SrFEE', 'KCC': '0xd02785d8a3d4e8f5ac9087cd3616ace75ed78a2a'}"
+https://www.playerup.com/middleman/payment/bitcoincash.php,{'Cash': 'qpm08ntfjru74cgsc6qf96yhj466t4ukmg3l82jty7'}
+https://www.playerup.com/middleman/payment/binancecoin.php,{'BEP20': '0xfe69c92ad05ce854029af0a26022d360830381cb'}
+https://www.playerup.com/middleman/payment/usdcoin.php,"{'ERC20': '0x799638e8b1a30c07445057f91b320439d18a1a09', 'SOL': '4rWCqZw2sjZQUAEz1msGdSHrp7Bdtz7M75bqtdVBmdt6', 'BEP20': '0x44536f970385db0891d3d59179dfcb7f74896cc4', 'TRC20': 'TBtD6cZ6DrG1VoDNtpKVdfzzSZ1Ur7p7Ba', 'AVAX': '0x892a2b9f43620fab299987ee55d7d38fc5074817', 'MATIC': '0x892a2b9f43620fab299987ee55d7d38fc5074817', 'Arbitrum': '0x44536f970385db0891d3d59179dfcb7f74896cc4', 'Network': '0x39becea6bca892b2db86a8fcc894f50c0a0f6bba'}"
+https://www.playerup.com/middleman/payment/dogecoin.php,"{'DOGE': 'DLvE117snPsuXZuggPs82CNGzQZZBgvWdZ', 'BEP20': '0x041fedb4de9477e67c5212ed852c45a2ad57965c'}"
+https://www.playerup.com/middleman/payment/binanceusd.php,"{'BEP20': '0xee569eb4c936ba5edc3c37f97937aab802976799', 'BEP2': 'bnb10749k3j3lk763s9amgfhtyf72pfggf22x7glc0', 'ERC20': '0xee569eb4c936ba5edc3c37f97937aab802976799'}"
+https://www.playerup.com/middleman/payment/polkadot.php,{'DOT': '16MXWT88AGxzkB5vU97aGefkwTRqMjdJNYth4eDfZbkxhHQW'}
+https://www.playerup.com/middleman/payment/chainlink.php,"{'ERC20': '0x799638e8b1a30c07445057f91b320439d18a1a09', 'BEP20': '0xee569eb4c936ba5edc3c37f97937aab802976799'}"
+https://www.playerup.com/middleman/payment/uniswap.php,"{'ERC20': '0x799638e8b1a30c07445057f91b320439d18a1a09', 'BEP2': 'bnb10749k3j3lk763s9amgfhtyf72pfggf22x7glc0'}"
+https://www.playerup.com/middleman/payment/dash.php,{'Dash': 'XiRmPnnGX9oE81MwdUhyh97DiFNHZjtdNz'}
+https://www.playerup.com/middleman/payment/ethereum.php,"{'ERC20': '0xfe69c92ad05ce854029af0a26022d360830381cb', 'BEP20': '0x44536f970385db0891d3d59179dfcb7f74896cc4', 'KCC': '0x9f0acee46d20f0cddd42e3c8c535499b4f0fe3c0', 'Network': '0x44536f970385db0891d3d59179dfcb7f74896cc4', 'One': '0x44536f970385db0891d3d59179dfcb7f74896cc4', 'zkSync': '0x6e14ebeB24E4A3cb0d39F7b88e39FF435e7D8760', 'Linea': '0x892a2b9f43620fab299987ee55d7d38fc5074817', 'OP': '0x44536f970385db0891d3d59179dfcb7f74896cc4'}"
+https://www.playerup.com/middleman/payment/eos.php,{'EOS': 'kucoindoteos'}
+https://www.playerup.com/middleman/payment/litecoin.php,{'LTC': 'MScyyTN3BYgQAmgm9fUthVdCFgx7E6Cg62'}
+https://www.playerup.com/middleman/payment/monero.php,{'Monero': '8BvoVRkwFnjBHkM1xaWJVx5dwALPt36My6kSjUMhC5x4h36Dt9mMr822So1emFtfKBMHSvuFTrUnt1Efubp98oEJUm9ZR3A'}
+https://www.playerup.com/middleman/payment/neo.php,{'Neo': 'AU5p4mWLN6EbWQazSj3j96r12U1Y8aNoer'}
+https://www.playerup.com/middleman/payment/ripple.php,{'Ripple': 'rNFugeoj3ZN8Wv6xhuLegUBBPXKCyWLRkB'}
+https://www.playerup.com/middleman/payment/solana.php,{'SOL': 'LYpqVfgSzMvnuNoFC3M6nQfY8wr3nY7kSXMiuSkFJrz'}
+https://www.playerup.com/middleman/payment/tether.php,"{'TRC20': 'TVNf8oaNBh65awqEXVD8kx1gJ1JZaYijGM', 'BEP20': '0x44536f970385db0891d3d59179dfcb7f74896cc4', 'KCC': '0x9f0acee46d20f0cddd42e3c8c535499b4f0fe3c0', 'SOL': 'GWC7yhbuJxVkjkg3FbhP4ufEKa7miGsViAdDywp6fuVQ', 'Network': '0x44536f970385db0891d3d59179dfcb7f74896cc4', 'One': '0x44536f970385db0891d3d59179dfcb7f74896cc4', 'Matic': '0x44536f970385db0891d3d59179dfcb7f74896cc4', 'AVAX': '0x44536f970385db0891d3d59179dfcb7f74896cc4', 'OP': '0x44536f970385db0891d3d59179dfcb7f74896cc4', 'ERC20': '0x799638e8b1a30c07445057f91b320439d18a1a09'}"
+https://www.playerup.com/middleman/payment/verge.php,{'Verge': 'DCbGtYHJJDfAsBZWk1DXrPYdsmzxQDkhin'}

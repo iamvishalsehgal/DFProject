@@ -26,7 +26,7 @@ class AVCrawler(CrawlSpider):
     start_urls = ["https://www.playerup.com/"]
 
     rules = (
-        Rule(LinkExtractor(allow=r'/accounts/[\w-]+/$'), callback='parse_listing', follow=True), # Follow links to category pages
+        Rule(LinkExtractor(allow=r'/accounts/[\w-]+/$'), callback='parse_listing', follow=True),
 #        Rule(LinkExtractor(allow=r'/threads/.*\.(\d+)/$'), callback='parse_detail'),  # Extract details from post pages
     )
 
@@ -65,6 +65,7 @@ class AVCrawler(CrawlSpider):
             absolute_seller_url = response.urljoin(seller_profile_link)
             request = Request(absolute_seller_url, callback=self.parse_seller_profile)
             request.meta['item'] = {
+                'url': response.url,
                 'title': title,
                 'price': price,
                 'seller': seller_name
@@ -80,8 +81,8 @@ class AVCrawler(CrawlSpider):
         location = response.css('.aboutPairs a[itemprop="address"]::text').get(default='Location not specified').strip()
         item['location'] = location
 
-        if item['price'] == 'Make offer' and item['location'] == 'Location not specified':
-            return  # Skip this item
+        if item['price'] == 'Make offer': # and item['location'] == 'Location not specified':
+            return # Skip this item
 
         # Generalizing contact information extraction from "Interact" section
         contact_fields = response.css('.contactInfo dl')
