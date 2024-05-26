@@ -1,0 +1,24 @@
+Date: Sat, 25 May 2024 21:28:13 GMT
+Content-Type: text/html; charset=UTF-8
+Strict-Transport-Security: max-age=15552000; includeSubDomains; preload
+X-Frame-Options: DENY
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: private, max-age=5
+X-Xss-Protection: 1
+Last-Modified: Sat, 25 May 2024 21:28:13 GMT
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: origin, x-requested-with, content-type
+Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS
+X-Cache: HIT from Backend
+Cf-Cache-Status: EXPIRED
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=3yw2JgPg1YKRfVMOn3q0Kj9roR6n4D8JvXCTj%2FAZtvfklGXjIYeHVQ%2B8EbhvMk6lRilNgCifK5%2FlIDQ0LqV0bRp472%2FHbZQaxFESOykOdIxXy9EUtD3MRPm4j3%2Bw3odDVYk%3D"}],"group":"cf-nel","max_age":604800}
+Nel: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+Vary: Accept-Encoding
+Vary: Cookie
+Link: <https://www.playerup.com/js/jquery/jquery-1.11.0.min.js>; rel="preload"; as=script, <https://www.playerup.com/js/xenforo/xenforo.js?_v=206cc819>; rel="preload"; as=script, <https://www.playerup.com/js/audentio/playerup/playerup/functions.min.js?_v=206cc819_1.5.0.1>; rel="preload"; as=script, <https://www.playerup.com/styles/playerup/uix/css/font-awesome.min.css>; rel="preload"; as=style,    <https://www.playerup.com/css.php?css=EXTRA&style=102&dir=LTR&d=1695083444>; rel="preload"; as=style, <https://www.playerup.com/css.php?css=xenforo,form,public&style=102&dir=LTR&d=1695083444>; rel="preload"; as=style, <https://www.playerup.com/css.php?css=uix,uiflex&style=102&dir=LTR&d=1695083444>; rel="preload"; as=style, <https://www.playerup.com/css.php?css=GoToTop_purecss,ajaxsearchboxstyle,cb_spinner,discussion_list,facebook,fc_custom_changes,fc_custom_search,fc_header_footer,fc_node_imagefr,fc_search_bar,fc_search_filter,fc_toggle_width,google,login_bar,moderator_bar,steam_login_bar,uix_extendedFooter&style=102&dir=LTR&d=1695083444>; rel="preload"; as=style,
+Server: cloudflare
+Cf-Ray: 88989d28bc3e656a-AMS
+Content-Encoding: gzip
+Alt-Svc: h3=":443"; ma=86400

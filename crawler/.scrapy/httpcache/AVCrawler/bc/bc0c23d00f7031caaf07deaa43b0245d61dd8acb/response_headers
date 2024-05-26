@@ -1,0 +1,27 @@
+Content-Length: 15634
+Date: Sat, 25 May 2024 21:51:01 GMT
+Content-Type: text/html; charset=UTF-8
+Accept-Ch: Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA
+Critical-Ch: Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA
+Cross-Origin-Embedder-Policy: require-corp
+Cross-Origin-Opener-Policy: same-origin
+Cross-Origin-Resource-Policy: same-origin
+Origin-Agent-Cluster: ?1
+Permissions-Policy: accelerometer=(),autoplay=(),browsing-topics=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),interest-cohort=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=()
+Referrer-Policy: same-origin
+X-Content-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Cf-Mitigated: challenge
+Cf-Chl-Out: E0DlU3A0O3+9DYr4juqoRgvKq6dJfaKEXq1lxI1x3IxotM6qDvo70FCS081E1SB3NFvfrpuX5vJ8zPR93WeGHQbCBF8WkTY/mLlTR61lNq+hE68/h0MYjDzX1SfxDZtmzP8uJqHqTpl0EpdxsDtenA==$hCcOVvnHcBgkdJPTp8uyTw==
+Cache-Control: private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Expires: Thu, 01 Jan 1970 00:00:01 GMT
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=5lL9p6zityelMka0OX49LBlb25S6ZXo0jhHi9bApMK3viwoqu1cf%2Bu55%2BgTxS3AYMr4HvkvdA1EuGpuPHTER33zRgUlmjy4VD39r5j%2FidfdIGQVXP%2FJrcIe9Ha6Q0KF%2FzZ4%3D"}],"group":"cf-nel","max_age":604800}
+Nel: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+Vary: Accept-Encoding
+Vary: Cookie
+Strict-Transport-Security: max-age=15552000; includeSubDomains; preload
+X-Content-Type-Options: nosniff
+Link: <https://www.playerup.com/js/jquery/jquery-1.11.0.min.js>; rel="preload"; as=script, <https://www.playerup.com/js/xenforo/xenforo.js?_v=206cc819>; rel="preload"; as=script, <https://www.playerup.com/js/audentio/playerup/playerup/functions.min.js?_v=206cc819_1.5.0.1>; rel="preload"; as=script, <https://www.playerup.com/styles/playerup/uix/css/font-awesome.min.css>; rel="preload"; as=style,    <https://www.playerup.com/css.php?css=EXTRA&style=102&dir=LTR&d=1695083444>; rel="preload"; as=style, <https://www.playerup.com/css.php?css=xenforo,form,public&style=102&dir=LTR&d=1695083444>; rel="preload"; as=style, <https://www.playerup.com/css.php?css=uix,uiflex&style=102&dir=LTR&d=1695083444>; rel="preload"; as=style, <https://www.playerup.com/css.php?css=GoToTop_purecss,ajaxsearchboxstyle,cb_spinner,discussion_list,facebook,fc_custom_changes,fc_custom_search,fc_header_footer,fc_node_imagefr,fc_search_bar,fc_search_filter,fc_toggle_width,google,login_bar,moderator_bar,steam_login_bar,uix_extendedFooter&style=102&dir=LTR&d=1695083444>; rel="preload"; as=style,
+Server: cloudflare
+Cf-Ray: 8898be906e0f656a-AMS
+Alt-Svc: h3=":443"; ma=86400

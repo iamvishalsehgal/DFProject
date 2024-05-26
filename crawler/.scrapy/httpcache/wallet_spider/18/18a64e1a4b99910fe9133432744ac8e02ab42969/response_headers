@@ -1,0 +1,18 @@
+Date: Sat, 25 May 2024 18:30:20 GMT
+Content-Type: text/html; charset=UTF-8
+X-Content-Type-Options: nosniff
+Set-Cookie: PHPSESSID=fkhni4vpg78ar30mk9qep2sqmn; path=/; domain=playerup.com; secure; HttpOnly
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Link: <https://www.playerup.com/js/jquery/jquery-1.11.0.min.js>; rel="preload"; as=script, <https://www.playerup.com/js/xenforo/xenforo.js?_v=206cc819>; rel="preload"; as=script, <https://www.playerup.com/js/audentio/playerup/playerup/functions.min.js?_v=206cc819_1.5.0.1>; rel="preload"; as=script, <https://www.playerup.com/styles/playerup/uix/css/font-awesome.min.css>; rel="preload"; as=style,    <https://www.playerup.com/css.php?css=EXTRA&style=102&dir=LTR&d=1695083444>; rel="preload"; as=style, <https://www.playerup.com/css.php?css=xenforo,form,public&style=102&dir=LTR&d=1695083444>; rel="preload"; as=style, <https://www.playerup.com/css.php?css=uix,uiflex&style=102&dir=LTR&d=1695083444>; rel="preload"; as=style, <https://www.playerup.com/css.php?css=GoToTop_purecss,ajaxsearchboxstyle,cb_spinner,discussion_list,facebook,fc_custom_changes,fc_custom_search,fc_header_footer,fc_node_imagefr,fc_search_bar,fc_search_filter,fc_toggle_width,google,login_bar,moderator_bar,steam_login_bar,uix_extendedFooter&style=102&dir=LTR&d=1695083444>; rel="preload"; as=style,
+X-Frame-Options: sameorigin
+Cf-Cache-Status: DYNAMIC
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=g0JStiBxhipHfZXtng5L30XEkPmG0OZpNVLigrKJP%2FHNJNg7776aCYlaT2Gzgq8Y7IHJoNLeqr%2F3d009cVaCO7%2Fpv2oBaJR2VH7kfbj2Tre9FMa1UfDlnWd0mzabuXZd9Lc%3D"}],"group":"cf-nel","max_age":604800}
+Nel: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+Strict-Transport-Security: max-age=15552000; includeSubDomains; preload
+Vary: Cookie
+Server: cloudflare
+Cf-Ray: 88979891e9819f81-AMS
+Content-Encoding: gzip
+Alt-Svc: h3=":443"; ma=86400
