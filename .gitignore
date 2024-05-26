@@ -1,5 +1,4 @@
 .Icon
 results.csv
 # Ignore the .scrapy folder
-.scrapy/
 .DS_Store
