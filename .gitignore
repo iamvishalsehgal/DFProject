@@ -2,3 +2,4 @@
 results.csv
 # Ignore the .scrapy folder
 .DS_Store
+.scrapy
